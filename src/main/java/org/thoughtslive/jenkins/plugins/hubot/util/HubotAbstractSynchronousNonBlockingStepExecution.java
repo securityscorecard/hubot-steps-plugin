@@ -96,7 +96,7 @@ public abstract class HubotAbstractSynchronousNonBlockingStepExecution<T>
     setHubotService(url);
 
     buildUser = prepareBuildUser(run.getCauses());
-    buildUrl = envVars.get("BUILD_URL").replaceAll("/job/", "/");
+    buildUrl = envVars.get("BUILD_URL").replaceAll("job/", "");
 
     return null;
 

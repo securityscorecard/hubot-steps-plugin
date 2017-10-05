@@ -98,7 +98,7 @@ public abstract class HubotStepExecution<T> extends StepExecution {
     setHubotService(url);
 
     buildUser = prepareBuildUser(run.getCauses());
-    buildUrl = envVars.get("BUILD_URL");
+    buildUrl = envVars.get("BUILD_URL").replaceAll("job/", "");
 
     return null;
 
