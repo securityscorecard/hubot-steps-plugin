@@ -48,6 +48,7 @@ public abstract class HubotStepExecution<T> extends StepExecution {
   protected transient String room = null;
   protected transient String buildUser = null;
   protected transient String buildUrl = null;
+  protected transient String hubotPrefix = null;
 
   protected HubotStepExecution(StepContext context) throws IOException, InterruptedException {
     super(context);
@@ -70,6 +71,7 @@ public abstract class HubotStepExecution<T> extends StepExecution {
         Util.fixEmpty(step.getRoom()) == null ? envVars.get("HUBOT_DEFAULT_ROOM") : step.getRoom();
     final String message = step.getMessage();
     final String failOnErrorStr = Util.fixEmpty(envVars.get("HUBOT_FAIL_ON_ERROR"));
+    hubotPrefix = Util.fixEmpty(envVars.get("HUBOT_PREFIX")) == null ? ".j" : envVars.get("HUBOT_PREFIX");
 
     if (failOnErrorStr == null) {
       failOnError = step.isFailOnError();
