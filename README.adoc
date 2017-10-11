@@ -1,3 +1,9 @@
+SSC Build Process
+
+`mvn package -Dmaven.test.skip=true`
+
+Then upload under the advanced tab on jenkins server.
+
 = Hubot Pipeline Steps
 :toc: macro
 :note-caption: :information_source:
