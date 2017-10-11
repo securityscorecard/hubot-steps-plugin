@@ -78,7 +78,8 @@ public class ApproveStep extends BasicHubotStep {
         final URL url = new URL(buildUrl);
 
         final String message = step.getMessage() + "\n" + "\tto Proceed reply:  " + hubotPrefix + " proceed "
-            + url.getPath().substring(1) + "\n" + "\tto Abort reply  :  " + hubotPrefix + " abort " + url.getPath().substring(1) + "\n\n"
+            + url.getPath().substring(1).replaceAll("job/", "") + "\n" + "\tto Abort reply  :  " + hubotPrefix 
+            + " abort " + url.getPath().substring(1).replaceAll("job/", "") + "\n\n"
             + "Job: " + buildUrl.toString() + "\n" + "User: " + buildUser;
 
         logger.println("Hubot: ROOM - " + room + " - Approval Message - " + step.getMessage());
